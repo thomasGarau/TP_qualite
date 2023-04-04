@@ -1,4 +1,4 @@
-public class Propriete extends Case {
+public abstract class Propriete extends Case {
     private Joueur proprietaire;
     private int prix;
     private int loyer;

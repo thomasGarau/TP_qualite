@@ -1,17 +1,19 @@
-public class Chance extends Case {
-    private int montant;
-    private static final int MONTANT_MAX = 100;
+public class Chance extends CasePioche{
 
-    public Chance() {
-        super("Chance");
-        montant = (int) (Math.random() * MONTANT_MAX - Math.random() * MONTANT_MAX) + 1;
+    public Chance(String nom){
+        super(nom);
     }
 
-    public int getMontant() {
-        return montant;
+    private void initDeck(){
+        this.deck.add(new Carte("vous avez toucher un héritage vous percevez 200e",0,0,200));
+        this.deck.add(new Carte("un controleur des impots à découvert votre fraude vous perdez 200e",0,0,-200));
+        this.deck.add(new Carte("vous êtes deplacer à rue de la paix sans passer par la case départ",39,0,0));
+        this.deck.add(new Carte("vous êtes déplacer de 4case",0,4,0));
     }
 
-    public void action(){
-        
+    @Override
+    public void action(Joueur j) {
+        super.action(j);;
     }
+
 }

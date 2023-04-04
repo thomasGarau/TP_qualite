@@ -4,6 +4,10 @@ public class AllerPrison extends Case {
         super("Aller en Prison");
     }
 
-  
+    public void action(){
+        for(Joueur j:getJoueurPresent()){
+            j.setPosition(10);
+        }
+    }
 }
 

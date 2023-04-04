@@ -30,4 +30,13 @@ public class Propriete extends Case {
         return proprietaire == null;
     }
 
+    public void action(){
+        for(Joueur j:getJoueurPresent()){
+            if(j!=getProprietaire()){
+                j.modifierArgent(-loyer);
+                proprietaire.modifierArgent(loyer);
+            }
+        }
+    }
+
 }

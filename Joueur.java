@@ -25,27 +25,19 @@ public class Joueur {
     }
 
     public void resteEnPrison() {
-        nbToursEnPrison++;
-    }
-
-    public void sortDePrison() {
-        nbToursEnPrison = 0;
+        nbToursEnPrison--;
     }
 
     public void vaEnPrison() {
-        nbToursEnPrison = 1;
+        nbToursEnPrison = 3;
     }
 
     public int getArgent() {
         return argent;
     }
 
-    public void ajouterArgent(int montant) {
+    public void modifierArgent(int montant) {
         argent += montant;
-    }
-
-    public void retirerArgent(int montant) {
-        argent -= montant;
     }
 
     public int getPosition() {

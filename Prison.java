@@ -4,5 +4,10 @@ public class Prison extends Case {
         super("Prison");
     }
 
+    public void action(){
+        for(Joueur j:getJoueurPresent()){
+            j.vaEnPrison();
+        }
+    }
 }
 

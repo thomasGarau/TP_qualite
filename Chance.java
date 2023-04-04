@@ -10,4 +10,8 @@ public class Chance extends Case {
     public int getMontant() {
         return montant;
     }
+
+    public void action(){
+        
+    }
 }

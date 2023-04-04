@@ -8,6 +8,8 @@ public class Joueur {
     private int position;
     private int nbToursEnPrison;
     private List<Propriete> proprietes;
+    private static De de1=new De();
+	private static De de2=new De();
 
     public Joueur(String nom) {
         this.nom = nom;
@@ -47,6 +49,10 @@ public class Joueur {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public int lancerDesDes(){
+        return de1.lancerDe()+de2.lancerDe();
     }
 
     public List<Propriete> getProprietes() {

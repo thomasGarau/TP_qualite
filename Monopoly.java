@@ -64,7 +64,40 @@ public class Monopoly {
 		plateau[39] = new Propriete("Rue de la paix", 400, 50);
 	}
 
-	public void jouer() {
+	public void jouerMieux() {
+		int nbRounds = 0;
+		Depart casDepart = new Depart();
+
+		while (joueurs.size() != 1) {
+			nbRounds++;
+
+			System.out.println("***********************************");
+			System.out.println("Round N°" + nbRounds + " :");
+
+			for (Joueur j : joueurs) {
+				if (j.getNbToursPrison() != 0) {
+					j.resteEnPrison();
+				} else {
+					if ((j.getPosition() + j.lancerDesDes()) > 39) {
+						casDepart.action(j);
+					}
+					j.setPosition((j.getPosition() + j.lancerDesDes()) % NB_CASES);
+					plateau[j.getPosition()].action(j);
+				}
+
+			}
+		}
+		System.out.println("***********************************");
+		System.out.println("Fin de la partie ! Le gagnant est " + joueurs.get(0));
+		scanner.close();
+	}
+
+}
+
+
+
+/*
+ * public void jouer() {
 		int nbRounds = 0;
 		boolean finDePartie = false;
 
@@ -141,16 +174,6 @@ public class Monopoly {
 
 				}
 			}
-			if (joueurs.size() == 1) {
-				System.out.println("***********************************");
-				System.out.println("Fin de la partie ! Le gagnant est " + joueurs.get(0));
-				finDePartie = true;
-				scanner.close();
-			}
 		}
 	}
-
-	private int lancerDe() {
-		return (int) (Math.random() * 6) + 1;
-	}
-}
+ */

@@ -11,7 +11,7 @@ public class Chance extends Case {
         return montant;
     }
 
-    public void action(){
+    public void action(Joueur j){
         
     }
 }

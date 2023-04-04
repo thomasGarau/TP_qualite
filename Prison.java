@@ -4,10 +4,8 @@
         super("Prison");
     }
 
-    public void action(){
-        for(Joueur j:getJoueurPresent()){
-            j.vaEnPrison();
-        }
+    public void action(Joueur j){
+        
     }
 }
 

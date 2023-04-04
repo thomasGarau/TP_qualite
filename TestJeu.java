@@ -1,5 +1,3 @@
-package monopolyV0;
-
 public class TestJeu {
 
 	public TestJeu() {

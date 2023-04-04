@@ -1,11 +1,9 @@
-package monopolyV0;
-
 public class Propriete extends Case {
     private Joueur proprietaire;
     private int prix;
     private int loyer;
 
-    public Propriete(String nom,int prix, int loyer) {
+    public Propriete(String nom, int prix, int loyer) {
         super(nom);
         this.prix = prix;
         this.loyer = loyer;

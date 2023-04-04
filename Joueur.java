@@ -1,5 +1,3 @@
-package monopolyV0;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,23 +15,27 @@ public class Joueur {
         this.nbToursEnPrison = 0;
         this.proprietes = new ArrayList<>();
     }
- 
+
     public String getNom() {
         return nom;
     }
 
     public int getNbToursPrison() {
-		return nbToursEnPrison;
+        return nbToursEnPrison;
     }
+
     public void resteEnPrison() {
- 			nbToursEnPrison++;
+        nbToursEnPrison++;
     }
+
     public void sortDePrison() {
-			nbToursEnPrison=0;
+        nbToursEnPrison = 0;
     }
+
     public void vaEnPrison() {
-    	nbToursEnPrison=1;
+        nbToursEnPrison = 1;
     }
+
     public int getArgent() {
         return argent;
     }
@@ -61,8 +63,8 @@ public class Joueur {
     public void ajouterPropriete(Propriete propriete) {
         proprietes.add(propriete);
     }
+
     public String toString() {
-    	return nom + "(Fortune : "+argent+" euros)";
+        return nom + "(Fortune : " + argent + " euros)";
     }
 }
-

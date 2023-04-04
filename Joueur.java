@@ -63,6 +63,10 @@ public class Joueur {
         proprietes.add(propriete);
     }
 
+    public boolean estEnfaillite(){
+        return argent<=0;
+    }
+
     public String toString() {
         return nom + "(Fortune : " + argent + " euros)";
     }

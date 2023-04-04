@@ -85,6 +85,10 @@ public class Monopoly {
 					plateau[j.getPosition()].action(j);
 				}
 
+				if(j.estEnfaillite()){
+					joueurs.remove(j);
+				}
+
 			}
 		}
 		System.out.println("***********************************");

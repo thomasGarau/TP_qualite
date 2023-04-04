@@ -1,4 +1,3 @@
-package TP_QUALITE;
  class Prison extends Case {
 
     public Prison() {

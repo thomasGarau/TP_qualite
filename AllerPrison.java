@@ -1,4 +1,3 @@
-package TP_QUALITE;
 
 public class AllerPrison extends Case {
 

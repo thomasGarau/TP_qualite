@@ -1,4 +1,3 @@
-package TP_QUALITE;
 public class Propriete extends Case {
     private Joueur proprietaire;
     private int prix;

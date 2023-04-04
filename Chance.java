@@ -1,3 +1,4 @@
+package TP_QUALITE;
 public class Chance extends Case {
     private int montant;
     private static final int MONTANT_MAX = 100;

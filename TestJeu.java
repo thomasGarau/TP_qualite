@@ -1,3 +1,5 @@
+package TP_QUALITE;
+
 public class TestJeu {
 
 	public TestJeu() {

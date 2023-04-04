@@ -1,4 +1,5 @@
-public class Prison extends Case {
+package TP_QUALITE;
+ class Prison extends Case {
 
     public Prison() {
         super("Prison");

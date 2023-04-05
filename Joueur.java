@@ -8,6 +8,8 @@ public class Joueur {
     private int position;
     private int nbToursEnPrison;
     private List<Propriete> proprietes;
+    private static De de1=new De();
+    private static De de2=new De();
 
     public Joueur(String nom) {
         this.nom = nom;
@@ -55,6 +57,14 @@ public class Joueur {
 
     public void ajouterPropriete(Propriete propriete) {
         proprietes.add(propriete);
+    }
+
+    public int lancerDesDes(){
+        return de1.lancerDe()+de2.lancerDe();
+    }
+
+    public boolean estEnfaillite(){
+        return argent<=0;
     }
 
     public String toString() {

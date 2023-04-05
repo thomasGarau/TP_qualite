@@ -24,10 +24,10 @@ public class Monopoly {
 	public void initialiserPlateau() {
 		plateau[0] = new Depart();
 		plateau[1] = new Terrain("Belleville", 60, 2);
-		plateau[2] = new Chance("Caisse communauté");
+		plateau[2] = new CaisseDeCom("Caisse communauté");
 		plateau[3] = new Terrain("Rue Lecourbe", 60, 4);
 		plateau[4] = new caseTaxe("Impot sur le revenu", 200);
-		plateau[5] = new Terrain("Gare Montparnasse", 200, 25);
+		plateau[5] = new Gare("Gare Montparnasse", 200, 25);
 		plateau[6] = new Terrain("Rue de Vaugirard", 100, 6);
 		plateau[7] = new Chance("chance");
 		plateau[8] = new Terrain("Rue de Courcelles", 100, 6);
@@ -37,18 +37,18 @@ public class Monopoly {
 		plateau[12] = new CaseSociete("Compagnie Electricité");
 		plateau[13] = new Terrain("Avenue de Neuilly", 140, 10);
 		plateau[14] = new Terrain("Rue de Paradis", 160, 12);
-		plateau[15] = new Terrain("Gare de Lyon", 200, 25);
+		plateau[15] = new Gare("Gare de Lyon", 200, 25);
 		plateau[16] = new Terrain("Avenue Mozart", 180, 14);
-		plateau[17] = new Chance("Caisse communauté");
+		plateau[17] = new CaisseDeCom("Caisse communauté");
 		plateau[18] = new Terrain("Boulevard Saint-Michel Rue Saint-Honoré", 180, 14);
 		plateau[19] = new Terrain("Place Pigalle", 200, 16);
 		//parc gratuit pas encore de classe
-		plateau[20] = new Chance("Parc gratuit");
+		plateau[20] = new ParcGratuit("Parc gratuit");
 		plateau[21] = new Terrain("Avenue Matignon", 220, 18);
 		plateau[22] = new Chance("chance");
 		plateau[23] = new Terrain("Boulevard Malesherbes", 220, 18);
 		plateau[24] = new Terrain("Avenue Henri-Martin", 220, 20);
-		plateau[25] = new Terrain("Gare du Nord", 200, 25);
+		plateau[25] = new Gare("Gare du Nord", 200, 25);
 		plateau[26] = new Terrain("Faubourg Saint Honoré", 240, 22);
 		plateau[27] = new Terrain("Place de la Bourse", 260, 22);
 		plateau[28] = new CaseSociete("Compagnie des eaux");
@@ -56,9 +56,9 @@ public class Monopoly {
 		plateau[30] = new AllerPrison();
 		plateau[31] = new Terrain("Avenue de Breteuil", 280, 24);
 		plateau[32] = new Terrain("Avenue Foch", 300, 24);
-		plateau[33] = new Chance("Caisse communauté");
+		plateau[33] = new CaisseDeCom("Caisse communauté");
 		plateau[34] = new Terrain("Boulevard des capucines", 300, 26);
-		plateau[35] = new Terrain("Gare Saint Lazare", 200, 25);
+		plateau[35] = new Gare("Gare Saint Lazare", 200, 25);
 		plateau[36] = new Chance("chance");
 		plateau[37] = new Terrain("Avenue des Champs-Élysées", 320, 28);
 		plateau[38] = new caseTaxe("Taxe de luxe", 100);

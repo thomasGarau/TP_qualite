@@ -60,4 +60,5 @@ public class Joueur {
     public String toString() {
         return nom + "(Fortune : " + argent + " euros)";
     }
+
 }

@@ -4,7 +4,7 @@ public class Terrain extends Propriete {
     }
 
     @Override
-    public void action() {
-        super.action();
+    public void action(Joueur j) {
+        super.action(j);
     }
 }

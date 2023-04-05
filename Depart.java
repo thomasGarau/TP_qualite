@@ -4,10 +4,8 @@ public class Depart extends Case {
         super("Depart");
     }
 
-    public void action(){
-        for(Joueur j :getJoueurPresent()){
-            j.modifierArgent(200);
-        }
+    public void action(Joueur j){
+        j.modifierArgent(200);
     }
 }
 

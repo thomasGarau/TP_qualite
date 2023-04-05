@@ -26,7 +26,7 @@ public class Monopoly {
 		plateau[1] = new Terrain("Belleville", 60, 2);
 		plateau[2] = new Chance("Caisse communauté");
 		plateau[3] = new Terrain("Rue Lecourbe", 60, 4);
-		plateau[4] = new CaseMalus("Impot sur le revenu", 200);
+		plateau[4] = new caseTaxe("Impot sur le revenu", 200);
 		plateau[5] = new Terrain("Gare Montparnasse", 200, 25);
 		plateau[6] = new Terrain("Rue de Vaugirard", 100, 6);
 		plateau[7] = new Chance("chance");
@@ -34,7 +34,7 @@ public class Monopoly {
 		plateau[9] = new Terrain("Avenue de la république", 120, 8);
 		plateau[10] = new Prison();
 		plateau[11] = new Terrain("Boulevard de La Vilette", 140, 10);
-		plateau[12] = new CaseMalus("Compagnie Electricité", 200);
+		plateau[12] = new CaseSociete("Compagnie Electricité");
 		plateau[13] = new Terrain("Avenue de Neuilly", 140, 10);
 		plateau[14] = new Terrain("Rue de Paradis", 160, 12);
 		plateau[15] = new Terrain("Gare de Lyon", 200, 25);
@@ -51,7 +51,7 @@ public class Monopoly {
 		plateau[25] = new Terrain("Gare du Nord", 200, 25);
 		plateau[26] = new Terrain("Faubourg Saint Honoré", 240, 22);
 		plateau[27] = new Terrain("Place de la Bourse", 260, 22);
-		plateau[28] = new CaseMalus("Compagnie des eaux", 100);
+		plateau[28] = new CaseSociete("Compagnie des eaux");
 		plateau[29] = new Terrain("Rue la Fayette", 260, 22);
 		plateau[30] = new AllerPrison();
 		plateau[31] = new Terrain("Avenue de Breteuil", 280, 24);
@@ -61,7 +61,7 @@ public class Monopoly {
 		plateau[35] = new Terrain("Gare Saint Lazare", 200, 25);
 		plateau[36] = new Chance("chance");
 		plateau[37] = new Terrain("Avenue des Champs-Élysées", 320, 28);
-		plateau[38] = new CaseMalus("Taxe de luxe", 300);
+		plateau[38] = new caseTaxe("Taxe de luxe", 100);
 		plateau[39] = new Terrain("Rue de la paix", 400, 50);
 	}
 

@@ -1,13 +1,8 @@
-public class CaseMalus extends Case {
-    private int montant;
-    public CaseMalus(String nom, int montant) {
+public abstract class CaseMalus extends Case {
+    public CaseMalus(String nom) {
         super(nom);
-        this.montant = montant;
     }
 
-    @Override
-    public void action(Joueur j) {
-        j.modifierArgent(this.montant);
-    }
+    
     
 }

@@ -1,5 +1,3 @@
-import javax.management.monitor.MonitorMBean;
-
 public class Controleur {
     private Ihm ihm;
 

@@ -47,7 +47,7 @@ public class Plateau {
     new Terrain("Rue de la paix", 400, 50)
 ));
 
-public int getNB_CASES() {
+public int getNbCase() {
     return NB_CASES;
 }
 

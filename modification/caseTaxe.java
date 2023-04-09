@@ -7,7 +7,7 @@ public class caseTaxe extends CaseMalus{
 
     @Override
     public void action(Joueur j) {
-        
+        j.modifierArgent(-montant);
     }
     
 }

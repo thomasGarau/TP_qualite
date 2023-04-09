@@ -4,8 +4,9 @@ import java.util.List;
 public class Monopoly {
 	private Plateau plateau = new Plateau();;
 	private List<Joueur> joueurs = new ArrayList<>();
-	//permet de conserver en mémoire les joueur devant être supprimer pour ne pas avoir à les supprimer
-	//dans la boucle for j in joueur ce qui provoquerais une erreur
+	// permet de conserver en mémoire les joueur devant être supprimer pour ne pas
+	// avoir à les supprimer
+	// dans la boucle for j in joueur ce qui provoquerais une erreur
 	private List<Joueur> joueursEnFaillite = new ArrayList<>();
 	private Controleur ctrl;
 	private int nbRounds = 0;
@@ -24,6 +25,13 @@ public class Monopoly {
 
 	}
 
+	private void removeJoueurEnFaillite() {
+		for (Joueur jFaillite : joueursEnFaillite) {
+			joueurs.remove(jFaillite);
+		}
+		joueursEnFaillite.clear();
+	}
+
 	public void hasWin(boolean win) {
 		this.hasWin = true;
 	}
@@ -33,8 +41,8 @@ public class Monopoly {
 			this.nbRounds++;
 			this.ctrl.ctrlDisplayRound(this.nbRounds);
 			for (Joueur j : joueurs) {
-				//si la partie est finie alors on quite la boucle en executant jamais le code
-				if(!hasWin){
+				// si la partie est finie alors on quite la boucle en executant jamais le code
+				if (!hasWin) {
 					if (j.getNbToursPrison() != -1) {
 						if (j.getNbToursPrison() == 0) {
 							this.ctrl.ctrlDisplayLeaveJail();
@@ -46,38 +54,40 @@ public class Monopoly {
 					} else {
 						int[] des = j.lancerDesDes();
 						this.ctrl.ctrlDisplayDice(j.getNom(), des);
-						if ((j.getPosition() + (des[0] + des[1])) > 39) {
+						// si le position du joueur depasse la fin ça veut dire qu'il est revenu au
+						// depart sans
+						// s'arreter par la case depart mais il doit quand meme percevoir son bénéfice
+						if ((j.getPosition() + (des[0] + des[1])) > plateau.getNB_CASES() - 1) {
 							this.plateau.getCase(0).action(j);
 						}
+						
 						j.setPosition((j.getPosition() + (des[0] + des[1])) % plateau.getNB_CASES());
-						this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(),
+						this.ctrl.ctrlDisplayPlayerPosition(
+								j.getNom(),
+								j.getPosition(),
 								plateau.getCase(j.getPosition()).getNom());
 						this.plateau.getCase(j.getPosition()).action(j);
 					}
-					//verifie si le joueur à encore de l'argent
-					//si jamais il n'en à plus ajoute le joueur à la liste teporaire joueursEnFaillite pour pouvoir
-					//le supprimer à la fin de la boucle for
+					// verifie si le joueur à encore de l'argent
+					// si jamais il n'en à plus ajoute le joueur à la liste teporaire
+					// joueursEnFaillite pour pouvoir
+					// le supprimer à la fin de la boucle for
 					if (j.estEnfaillite()) {
 						this.ctrl.ctrlDisplayPlayerLooseGame(j.getNom());
 						joueursEnFaillite.add(j);
-						//si jamais il n'y a plus qu'un joueur en jeu alors on set hasWin à true pour break le jeu
-						if((joueurs.size() - joueursEnFaillite.size()) < 2){
+						// si jamais il n'y a plus qu'un joueur en jeu alors on set hasWin à true pour
+						// break le jeu
+						if ((joueurs.size() - joueursEnFaillite.size()) < 2) {
 							this.hasWin = true;
-						} 
+						}
 					}
 				}
 			}
-			if(joueursEnFaillite != null){
+			if (joueursEnFaillite != null) {
 				this.removeJoueurEnFaillite();
 			}
 		}
 		this.ctrl.ctrlDisplayWin(joueurs.get(0).getNom());
 	}
 
-	private void removeJoueurEnFaillite(){
-		for(Joueur jFaillite : joueursEnFaillite){
-			joueurs.remove(jFaillite);
-		}
-		joueursEnFaillite.clear();
-	}
 }

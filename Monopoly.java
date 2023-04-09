@@ -4,8 +4,9 @@ import java.util.List;
 public class Monopoly {
 	private Plateau plateau = new Plateau();;
 	private List<Joueur> joueurs = new ArrayList<>();
-	//permet de conserver en mémoire les joueur devant être supprimer pour ne pas avoir à les supprimer
-	//dans la boucle for j in joueur ce qui provoquerais une erreur
+	// permet de conserver en mémoire les joueur devant être supprimer pour ne pas
+	// avoir à les supprimer
+	// dans la boucle for j in joueur ce qui provoquerais une erreur
 	private List<Joueur> joueursEnFaillite = new ArrayList<>();
 	private Controleur ctrl;
 	private int nbRounds = 0;
@@ -23,6 +24,14 @@ public class Monopoly {
 			this.joueurs.add(new Joueur(res));
 		}
 
+	}
+
+	//permet de supprimer les joueur en faillite de la liste des joueurs
+	private void removeJoueurEnFaillite(){
+		for(Joueur jFaillite : joueursEnFaillite){
+			joueurs.remove(jFaillite);
+		}
+		joueursEnFaillite.clear();
 	}
 
 	public void hasWin(boolean win) {
@@ -62,31 +71,25 @@ public class Monopoly {
 						this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(),plateau.getCase(j.getPosition()).getNom());
 						this.plateau.getCase(j.getPosition()).action(j);
 					}
-					//verifie si le joueur à encore de l'argent
-					//si jamais il n'en à plus ajoute le joueur à la liste teporaire joueursEnFaillite pour pouvoir
-					//le supprimer à la fin de la boucle for
+					// verifie si le joueur à encore de l'argent
+					// si jamais il n'en à plus ajoute le joueur à la liste teporaire
+					// joueursEnFaillite pour pouvoir
+					// le supprimer à la fin de la boucle for
 					if (j.estEnfaillite()) {
 						this.ctrl.ctrlDisplayPlayerLooseGame(j.getNom());
 						joueursEnFaillite.add(j);
-						//si jamais il n'y a plus qu'un joueur en jeu alors on set hasWin à true pour break le jeu
-						if((joueurs.size() - joueursEnFaillite.size()) < 2){
+						// si jamais il n'y a plus qu'un joueur en jeu alors on set hasWin à true pour
+						// break le jeu
+						if ((joueurs.size() - joueursEnFaillite.size()) < 2) {
 							this.hasWin = true;
-						} 
+						}
 					}
 				}
 			}
-			if(joueursEnFaillite != null){
+			if (joueursEnFaillite != null) {
 				this.removeJoueurEnFaillite();
 			}
 		}
 		this.ctrl.ctrlDisplayWin(joueurs.get(0).getNom());
-	}
-
-	//permet de supprimer les joueur en faillite de la liste des joueurs
-	private void removeJoueurEnFaillite(){
-		for(Joueur jFaillite : joueursEnFaillite){
-			joueurs.remove(jFaillite);
-		}
-		joueursEnFaillite.clear();
 	}
 }

@@ -43,6 +43,4 @@ public class Controleur {
         return this.ihm.askPlayerName(numJoueur);
     }
 
-    
-
 }

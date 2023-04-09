@@ -40,4 +40,8 @@ public class IhmCase {
         System.out.println("profitez de la journee au parc");
     }
 
+    public void showFunds(Joueur joueur) {
+        System.out.println("Solde restants du joueur "+joueur.getNom()+":"+joueur.getArgent());
+    }
+
 }

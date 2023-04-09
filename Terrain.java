@@ -7,6 +7,7 @@ public class Terrain extends Propriete {
     public void action(Joueur j) {
         super.action(j);
         if (this.getProprietaire() == null) {
+            this.getCtrl().ctrlShowFunds(j);
             String res = this.getCtrl().ctrlAskPlayerWantToBuy(j.getNom(), this.getNom(), this.getPrix());
             if (res.equals("o")) {
                 this.setProprietaire(j);

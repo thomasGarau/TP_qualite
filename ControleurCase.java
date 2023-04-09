@@ -42,4 +42,8 @@ public class ControleurCase {
     public void ctrlDisplayPlayerInPark(){
         this.ihm.displayPlayerInPark();
     }
+
+    public void ctrlShowFunds(Joueur joueur) {
+        this.ihm.showFunds(joueur);
+    }
 }

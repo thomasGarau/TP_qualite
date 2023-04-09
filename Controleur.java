@@ -39,8 +39,8 @@ public class Controleur {
         this.ihm.displayPlayerLooseGame(joueur);
     }
 
-    public void ctrlAskName(int numJoueur) {
-        this.ihm.askPlayerName(numJoueur);
+    public String ctrlAskName(int numJoueur) {
+        return this.ihm.askPlayerName(numJoueur);
     }
 
 }

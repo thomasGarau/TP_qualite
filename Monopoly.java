@@ -6,22 +6,20 @@ import java.util.Scanner;
 public class Monopoly {
 	private Plateau plateau = new Plateau();;
 	private List<Joueur> joueurs;
-	Scanner scanner = new Scanner(System.in);
 	private Controleur ctrl;
 	private int nbRounds = 0;
 	private boolean hasWin = false;
 
 	public Monopoly(Controleur ctrl) {
 		joueurs = new ArrayList<Joueur>();
+		this.ctrl = ctrl;
 		initJoueur(2);
 	}
 
 	public void initJoueur(int nbJoueur){
-		String nom;
 		for(int i=0;i<nbJoueur;i++){
-			this.ctrl.ctrlAskName(i+1);
-			nom = scanner.next();
-			this.joueurs.add(new Joueur(nom));
+			String res = this.ctrl.ctrlAskName(i+1);
+			this.joueurs.add(new Joueur(res));
 		}
 		
 	}
@@ -62,7 +60,5 @@ public class Monopoly {
 			}
 		}
 		this.ctrl.ctrlDisplayWin(joueurs.get(0).getNom());
-		scanner.close();
 	}
-
 }

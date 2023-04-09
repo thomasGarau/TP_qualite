@@ -1,7 +1,10 @@
+import java.util.Scanner;
+
 public class Ihm {
-    
+    Scanner scanner = new Scanner(System.in);
+
     public Ihm(){
-        new Controleur(this);
+       new Controleur(this);
     }
 
     public void displayRound(int nbRounds){
@@ -38,8 +41,9 @@ public class Ihm {
         System.out.println(joueur + " n'a plus d'argent et quitte le jeu !");
     }
 
-    public void askPlayerName(int numJoueur) {
+    public String askPlayerName(int numJoueur) {
         System.out.println("Le nom du joueur "+ numJoueur +" : ");
+        return this.scanner.nextLine();
     }
 
 }

@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +14,15 @@ public class Monopoly {
 		initJoueur(2);
 	}
 
-	public void initJoueur(int nbJoueur){
-		for(int i=0;i<nbJoueur;i++){
-			String res = this.ctrl.ctrlAskName(i+1);
+	public void initJoueur(int nbJoueur) {
+		for (int i = 0; i < nbJoueur; i++) {
+			String res = this.ctrl.ctrlAskName(i + 1);
 			this.joueurs.add(new Joueur(res));
 		}
-		
+
 	}
-	public void hasWin(boolean win){
+
+	public void hasWin(boolean win) {
 		this.hasWin = true;
 	}
 
@@ -35,7 +35,7 @@ public class Monopoly {
 					if (j.getNbToursPrison() == 0) {
 						this.ctrl.ctrlDisplayLeaveJail();
 						j.sortDePrison();
-					}else{
+					} else {
 						this.ctrl.ctrlDisplayIsInJail();
 						j.resteEnPrison();
 					}
@@ -46,14 +46,15 @@ public class Monopoly {
 						this.plateau.getCase(0).action(j);
 					}
 					j.setPosition((j.getPosition() + (des[0] + des[1])) % plateau.getNB_CASES());
-					this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(), plateau.getCase(j.getPosition()).getNom());
+					this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(),
+							plateau.getCase(j.getPosition()).getNom());
 					this.plateau.getCase(j.getPosition()).action(j);
 				}
-				if (j.estEnfaillite()) {	
+				if (j.estEnfaillite()) {
 					this.ctrl.ctrlDisplayPlayerLooseGame(j.getNom());
 					joueurs.remove(j);
 				}
-				if(joueurs.size() < 2){
+				if (joueurs.size() < 2) {
 					hasWin(true);
 				}
 			}

@@ -12,7 +12,7 @@ public abstract class Case {
     }
 
     public ControleurCase getCtrl(){
-        return this.ctrl;
+        return Case.ctrl;
     }
 
     public String toString() {

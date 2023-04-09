@@ -14,22 +14,11 @@ public abstract class CasePioche extends Case {
         return montant;
     }
 
-    public void action(Joueur j){
-        Carte piocher = deck.get((int) (Math.random() * deck.size()));
-        
-        if(piocher.getMontant() != 0){
-            j.modifierArgent(piocher.getMontant());
-        }
-        if(piocher.getTP() != 0){
-            j.setPosition(piocher.getTP());
-        }else if(piocher.getDeplacement() > 0){
-            j.setPosition(j.getPosition() + piocher.getDeplacement());
-        }
+    public int getMontantMax(){
+        return MONTANT_MAX;
+    }
 
-        if(piocher.getMontant() > 0){
-            this.getCtrl().ctrlDisplayEarnMoney(j.getNom(), piocher.getMontant());
-        }else{
-            this.getCtrl().ctrlDisplayLooseMoney(j.getNom(), piocher.getMontant());
-        }
+    public void action(Joueur j){
+
     }
 }

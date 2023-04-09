@@ -4,11 +4,11 @@ public class Chance extends CasePioche{
         super(nom);
     }
 
-    
     @Override
     public void action(Joueur j) {
         this.getCtrl().ctrlDisplayPlayerDrawLuck();
-        super.action(j);
+        int montant= (int) (Math.random() * this.getMontant() -  Math.random() * this.getMontant()) +1;
+        j.modifierArgent(montant);
     }
 
 }

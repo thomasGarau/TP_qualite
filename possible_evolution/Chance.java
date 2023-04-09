@@ -13,7 +13,7 @@ public class Chance extends CasePioche{
 
     @Override
     public void action(Joueur j) {
-        super.action(j);;
+        super.action(j);
     }
 
 }

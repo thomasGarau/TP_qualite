@@ -34,10 +34,11 @@ public class Monopoly {
 				if (j.getNbToursPrison() != 0) {
 					j.resteEnPrison();
 				} else {
-					if ((j.getPosition() + j.lancerDesDes()) > 39) {
+					int deplacement[]=j.lancerDesDes();
+					if ((j.getPosition() + (deplacement[0]+deplacement[1])) > 39) {
 						casDepart.action(j);
 					}
-					j.setPosition((j.getPosition() + j.lancerDesDes()) % plateau.getNB_CASES());
+					j.setPosition((j.getPosition() + (deplacement[0]+deplacement[1])) % plateau.getNB_CASES());
 					plateau.getCase(j.getPosition()).action(j);
 				}
 

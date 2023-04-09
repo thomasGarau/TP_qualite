@@ -15,7 +15,7 @@ public class Joueur {
         this.nom = nom;
         this.argent = 200;
         this.position = 0;
-        this.nbToursEnPrison = 0;
+        this.nbToursEnPrison = -1;
         this.proprietes = new ArrayList<>();
     }
 

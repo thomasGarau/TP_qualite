@@ -17,7 +17,7 @@ public class Ihm {
     }
 
     public void displayDice(String nom, int[] des){
-        System.out.println(nom + " lance les dés et fait " + des[0] + " + " + des[1] + " = " + des[0] + des[1]);
+        System.out.println(nom + " lance les dés et fait " + des[0] + " + " + des[1] + " = " + (des[0] + des[1]));
     }
 
     public void displayPlayerPosition(String nom, int nbCase, String nomCase){

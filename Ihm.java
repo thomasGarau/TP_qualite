@@ -21,4 +21,8 @@ public class Ihm {
         System.out.println(nom + " tombe sur la case N° " + nbCase + " : " + nomCase);
     }
 
+    public void askPlayerName(int i) {
+        System.out.println("Le nom du joueur "+i+" : ");
+    }
+
 }

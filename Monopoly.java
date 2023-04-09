@@ -12,12 +12,17 @@ public class Monopoly {
 
 	public Monopoly(Controleur ctrl) {
 		joueurs = new ArrayList<Joueur>();
-		System.out.print("Nom du joueur 1 : ");
-		String nom = scanner.next();
-		joueurs.add(new Joueur(nom));
-		System.out.print("Nom du joueur 2 : ");
-		nom = scanner.next();
-		joueurs.add(new Joueur(nom));
+		initJoueur(2);
+	}
+
+	public void initJoueur(int nbJoueur){
+		String nom;
+		for(int i=0;i<nbJoueur;i++){
+			this.ctrl.ctrlAskName(i+1);
+			nom = scanner.next();
+			this.joueurs.add(new Joueur(nom));
+		}
+		
 	}
 
 	public void jouerMieux() {

@@ -23,4 +23,8 @@ public class Controleur {
         this.ihm.displayPlayerPosition(nom, nbCase, nomCase);
     }
 
+    public void ctrlAskName(int i) {
+        this.ihm.askPlayerName(i);
+    }
+
 }

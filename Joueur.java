@@ -60,6 +60,10 @@ public class Joueur {
         proprietes.add(propriete);
     }
 
+    public void sortDePrison(){
+        this.nbToursEnPrison = -1;
+    }
+
     public int[] lancerDesDes(){
          int[] tab = {de1.lancerDe(),de2.lancerDe()};
          return tab;

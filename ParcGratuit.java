@@ -2,7 +2,6 @@ public class ParcGratuit extends Case {
 
     public ParcGratuit(String nom) {
         super(nom);
-        //TODO Auto-generated constructor stub
     }
 
     @Override

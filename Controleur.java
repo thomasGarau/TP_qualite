@@ -1,8 +1,12 @@
+import javax.management.monitor.MonitorMBean;
+
 public class Controleur {
     private Ihm ihm;
 
     public Controleur(Ihm ihm){
         this.ihm = ihm;
+        Monopoly mono = new Monopoly(this);
+        mono.jouerMieux();
     }
 
     public void ctrlDisplayRound(int Rounds){

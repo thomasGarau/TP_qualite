@@ -46,4 +46,8 @@ public class Ihm {
         return this.scanner.nextLine();
     }
 
+    public void showFunds(Joueur joueur) {
+        System.out.println("Solde restants du joueur "+joueur.getNom()+":"+joueur.getArgent());
+    }
+
 }

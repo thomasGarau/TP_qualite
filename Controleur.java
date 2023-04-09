@@ -43,4 +43,8 @@ public class Controleur {
         return this.ihm.askPlayerName(numJoueur);
     }
 
+    public void ctrlShowFunds(Joueur joueur) {
+        this.ihm.showFunds(joueur);
+    }
+
 }

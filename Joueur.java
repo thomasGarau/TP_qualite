@@ -7,6 +7,7 @@ public class Joueur {
     private int argent;
     private int position;
     private int nbToursEnPrison;
+    private Controleur ctrl;
     private List<Propriete> proprietes;
     private static De de1=new De();
     private static De de2=new De();
@@ -45,6 +46,7 @@ public class Joueur {
 
     public void modifierArgent(int montant) {
         argent += montant;
+        this.ctrl.ctrlShowFunds(this);
     }
 
     public boolean estEnfaillite(){

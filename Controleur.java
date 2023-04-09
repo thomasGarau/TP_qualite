@@ -1,5 +1,3 @@
-import javax.management.monitor.MonitorMBean;
-
 public class Controleur {
     private Ihm ihm;
 
@@ -39,6 +37,10 @@ public class Controleur {
 
     public void ctrlDisplayPlayerLooseGame(String joueur){
         this.ihm.displayPlayerLooseGame(joueur);
+    }
+
+    public void ctrlAskName(int numJoueur) {
+        this.ihm.askPlayerName(numJoueur);
     }
 
 }

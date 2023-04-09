@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Ihm {
     
     public Ihm(){
@@ -38,6 +36,10 @@ public class Ihm {
 
     public void displayPlayerLooseGame(String joueur){
         System.out.println(joueur + " n'a plus d'argent et quitte le jeu !");
+    }
+
+    public void askPlayerName(int numJoueur) {
+        System.out.println("Le nom du joueur "+ numJoueur +" : ");
     }
 
 }

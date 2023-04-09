@@ -6,7 +6,7 @@ public class ParcGratuit extends Case {
 
     @Override
     public void action(Joueur j) {
-        System.out.println("profitez de la journee au parc");
+        this.getCtrl().ctrlDisplayPlayerInPark();
     }
     
 }

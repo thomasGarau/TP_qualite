@@ -16,13 +16,20 @@ public abstract class CasePioche extends Case {
 
     public void action(Joueur j){
         Carte piocher = deck.get((int) (Math.random() * deck.size()));
-        if(piocher.getMontant() > 0){
+        
+        if(piocher.getMontant() != 0){
             j.modifierArgent(piocher.getMontant());
         }
         if(piocher.getTP() != 0){
             j.setPosition(piocher.getTP());
         }else if(piocher.getDeplacement() > 0){
             j.setPosition(j.getPosition() + piocher.getDeplacement());
+        }
+
+        if(piocher.getMontant() > 0){
+            this.getCtrl().ctrlDisplayEarnMoney(j.getNom(), piocher.getMontant());
+        }else{
+            this.getCtrl().ctrlDisplayLooseMoney(j.getNom(), piocher.getMontant());
         }
     }
 }

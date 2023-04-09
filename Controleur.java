@@ -25,4 +25,20 @@ public class Controleur {
         this.ihm.displayPlayerPosition(nom, nbCase, nomCase);
     }
 
+    public void ctrlDisplayLeaveJail(){
+        this.ihm.displayLeaveJail();
+    }
+    
+    public void ctrlDisplayIsInJail(){
+        this.ihm.displayIsInJail();
+    }
+
+    public void ctrlDisplayWin(String joueur){
+        this.ihm.displayWin(joueur);
+    }
+
+    public void ctrlDisplayPlayerLooseGame(String joueur){
+        this.ihm.displayPlayerLooseGame(joueur);
+    }
+
 }

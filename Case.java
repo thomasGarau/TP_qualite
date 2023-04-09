@@ -1,6 +1,7 @@
 
 public abstract class Case {
     private String nom;
+    private static ControleurCase ctrl = new ControleurCase();
 
     public Case(String nom) {
         this.nom = nom;
@@ -8,6 +9,10 @@ public abstract class Case {
 
     public String getNom() {
         return nom;
+    }
+
+    public ControleurCase getCtrl(){
+        return this.ctrl;
     }
 
     public String toString() {

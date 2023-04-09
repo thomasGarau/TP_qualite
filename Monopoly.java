@@ -8,7 +8,8 @@ public class Monopoly {
 	private List<Joueur> joueurs;
 	Scanner scanner = new Scanner(System.in);
 	private Controleur ctrl;
-	public int nbRounds = 0;
+	private int nbRounds = 0;
+	private boolean hasWin = false;
 
 	public Monopoly(Controleur ctrl) {
 		joueurs = new ArrayList<Joueur>();
@@ -20,17 +21,22 @@ public class Monopoly {
 		joueurs.add(new Joueur(nom));
 	}
 
+	public void initJoueur(){}
+	public void hasWin(boolean win){
+		this.hasWin = true;
+	}
+
 	public void jouerMieux() {
-		while (joueurs.size() != 1) {
+		while (this.hasWin != true) {
 			this.nbRounds++;
 			this.ctrl.ctrlDisplayRound(this.nbRounds);
 			for (Joueur j : joueurs) {
-				 if (j.getNbToursPrison() != -1) {
+				if (j.getNbToursPrison() != -1) {
 					if (j.getNbToursPrison() == 0) {
-						System.out.println("Il sort de prison!");
+						this.ctrl.ctrlDisplayLeaveJail();
 						j.sortDePrison();
 					}else{
-						System.out.println("Il ne joue pas il est en prison!");
+						this.ctrl.ctrlDisplayIsInJail();
 						j.resteEnPrison();
 					}
 				} else {
@@ -43,67 +49,17 @@ public class Monopoly {
 					this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(), plateau.getCase(j.getPosition()).getNom());
 					this.plateau.getCase(j.getPosition()).action(j);
 				}
-				if (j.estEnfaillite()) {
+				if (j.estEnfaillite()) {	
+					this.ctrl.ctrlDisplayPlayerLooseGame(j.getNom());
 					joueurs.remove(j);
 				}
+				if(joueurs.size() < 2){
+					hasWin(true);
+				}
 			}
 		}
-		System.out.println("***********************************");
-		System.out.println("Fin de la partie ! Le gagnant est " + joueurs.get(0));
+		this.ctrl.ctrlDisplayWin(joueurs.get(0).getNom());
 		scanner.close();
 	}
+
 }
-
-
-
-
-
-
-	
-		/*
-		if (c instanceof Terrain) {
-			Propriete p = (Propriete) c;
-			if (p.getProprietaire() == null) {
-				System.out.print(j.getNom() + " veut-il acheter la " + p.getNom() + " (" + p.getPrix()
-						+ " euros) (o-n)? ");
-				String reponse = scanner.nextLine().toLowerCase();
-				if (reponse.equals("o")) {
-					p.setProprietaire(j);
-					j.retirerArgent(p.getPrix());
-					System.out.println(j + " a acheté " + p.getNom());
-				}
-			} else if (p.getProprietaire() != j) {
-				j.retirerArgent(p.getLoyer());
-				p.getProprietaire().ajouterArgent(p.getLoyer());
-				System.out.println(
-						j.getNom() + " a payé " + p.getLoyer() + " à " + p.getProprietaire().getNom());
-			}
-		} else if (c instanceof Chance) {
-			Chance chance = (Chance) c;
-			System.out.print("Tirage d'une carte chance : ");
-			int montant = chance.getMontant();
-			if (montant > 0) {
-				j.ajouterArgent(montant);
-				System.out.println(j.getNom() + " reçoit " + montant + " euros");
-			} else {
-				j.retirerArgent(-montant);
-				System.out.println(j.getNom() + " doit payer " + (-montant) + " euros");
-			}
-		} else if (c instanceof AllerPrison) {
-			j.setPosition(10);
-			j.vaEnPrison();
-			System.out.println(j.getNom() + " va en prison !");
-
-		} else if (c instanceof Depart) {
-			j.ajouterArgent(200);
-			System.out.println(j.getNom() + " passe par la case départ et reçoit 200 euros");
-		}
-		if (j.getArgent() < 0) {
-			System.out.println(j + " n'a plus d'argent et quitte le jeu !");
-			joueurs.remove(j);
-			break;
-		}
-
-	}
-}
-*/

@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Joueur {
@@ -36,12 +35,20 @@ public class Joueur {
         nbToursEnPrison = 3;
     }
 
+    public void sortDePrison(){
+        this.nbToursEnPrison = -1;
+    }
+
     public int getArgent() {
         return argent;
     }
 
     public void modifierArgent(int montant) {
         argent += montant;
+    }
+
+    public boolean estEnfaillite(){
+        return argent<=0;
     }
 
     public int getPosition() {
@@ -60,17 +67,9 @@ public class Joueur {
         proprietes.add(propriete);
     }
 
-    public void sortDePrison(){
-        this.nbToursEnPrison = -1;
-    }
-
     public int[] lancerDesDes(){
          int[] tab = {de1.lancerDe(),de2.lancerDe()};
          return tab;
-    }
-
-    public boolean estEnfaillite(){
-        return argent<=0;
     }
 
     public String toString() {

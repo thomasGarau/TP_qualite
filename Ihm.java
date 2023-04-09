@@ -23,4 +23,21 @@ public class Ihm {
         System.out.println(nom + " tombe sur la case N° " + nbCase + " : " + nomCase);
     }
 
+    public void displayLeaveJail(){
+        System.out.println("Il sort de prison!");
+    }
+    
+    public void displayIsInJail(){
+        System.out.println("Il ne joue pas il est en prison!");
+    }
+
+    public void displayWin(String joueur){
+        System.out.println("***********************************");
+		System.out.println("Fin de la partie ! Le gagnant est " + joueur);
+    }
+
+    public void displayPlayerLooseGame(String joueur){
+        System.out.println(joueur + " n'a plus d'argent et quitte le jeu !");
+    }
+
 }

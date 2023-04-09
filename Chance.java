@@ -13,7 +13,8 @@ public class Chance extends CasePioche{
 
     @Override
     public void action(Joueur j) {
-        super.action(j);;
+        this.getCtrl().ctrlDisplayPlayerDrawLuck();
+        super.action(j);
     }
 
 }

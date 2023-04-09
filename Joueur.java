@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Joueur {
@@ -59,8 +60,9 @@ public class Joueur {
         proprietes.add(propriete);
     }
 
-    public int lancerDesDes(){
-        return de1.lancerDe()+de2.lancerDe();
+    public int[] lancerDesDes(){
+         int[] tab = {de1.lancerDe(),de2.lancerDe()};
+         return tab;
     }
 
     public boolean estEnfaillite(){

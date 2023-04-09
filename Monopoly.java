@@ -8,8 +8,9 @@ public class Monopoly {
 	private List<Joueur> joueurs;
 	private final int NB_CASES = 40;
 	Scanner scanner = new Scanner(System.in);
+	private Controleur ctrl;
 
-	public Monopoly() {
+	public Monopoly(Controleur ctrl) {
 		plateau = new Case[NB_CASES];
 		joueurs = new ArrayList<Joueur>();
 		System.out.print("Nom du joueur 1 : ");
@@ -19,6 +20,7 @@ public class Monopoly {
 		nom = scanner.next();
 		joueurs.add(new Joueur(nom));
 		initialiserPlateau();
+		this.ctrl = ctrl;
 	}
 
 	public void initialiserPlateau() {
@@ -42,7 +44,6 @@ public class Monopoly {
 		plateau[17] = new CaisseDeCom("Caisse communauté");
 		plateau[18] = new Terrain("Boulevard Saint-Michel Rue Saint-Honoré", 180, 14);
 		plateau[19] = new Terrain("Place Pigalle", 200, 16);
-		//parc gratuit pas encore de classe
 		plateau[20] = new ParcGratuit("Parc gratuit");
 		plateau[21] = new Terrain("Avenue Matignon", 220, 18);
 		plateau[22] = new Chance("chance");
@@ -97,23 +98,18 @@ public class Monopoly {
 		scanner.close();
 	}
 
-}
 
 
 
-/*
- * public void jouer() {
+	public void jouer() {
 		int nbRounds = 0;
 		boolean finDePartie = false;
 
 		while (!finDePartie) {
 			nbRounds++;
-
-			System.out.println("***********************************");
-			System.out.println("Round N°" + nbRounds + " :");
-
+			this.ctrl.ctrlDisplayRound(nbRounds);
 			for (Joueur j : joueurs) {
-				System.out.println("- C'est au tour de " + j);
+				this.ctrl.ctrlDisplayPlayerTurn(j.getNom());
 				int nbToursPrison = j.getNbToursPrison();
 				if (nbToursPrison > 0 && nbToursPrison < 3) {
 					System.out.println("Il ne joue pas il est en prison!");
@@ -123,17 +119,13 @@ public class Monopoly {
 						System.out.println("Il sort de prison!");
 						j.sortDePrison();
 					}
-					int de1 = lancerDe();
-					int de2 = lancerDe();
-					int totalDe = de1 + de2;
-					System.out.println(j.getNom() + " lance les dés et fait " + de1 + " + " + de2 + " = " + totalDe);
-					if (j.getPosition() + totalDe > NB_CASES)
-						// passage case depart
-						j.ajouterArgent(200);
-					int positionCourante = (j.getPosition() + totalDe) % NB_CASES;
-					Case c = plateau[positionCourante];
-					System.out.println(j.getNom() + " tombe sur la case N° " + positionCourante + " : " + c.getNom());
-					j.setPosition(positionCourante);
+					int[] des = j.lancerDesDes();
+					this.ctrl.ctrlDisplayDice(j.getNom(), des);
+					j.setPosition(des[0] + des[1]);
+					this.ctrl.ctrlDisplayPlayerCase(j.getNom(), j.getCurrentPosition(), plateau.getCase(j.getPosition()).getNom());				
+					this.plateau.getCase()[j.getPosition()].action();
+				}
+					/*
 					if (c instanceof Terrain) {
 						Propriete p = (Propriete) c;
 						if (p.getProprietaire() == null) {
@@ -179,6 +171,8 @@ public class Monopoly {
 
 				}
 			}
+			*/
 		}
 	}
- */
+}
+ 

@@ -6,7 +6,6 @@ public class CaseSociete extends CaseMalus {
 
     @Override
     public void action(Joueur j) {
-       
     }
     
 }

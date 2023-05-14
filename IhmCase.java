@@ -16,8 +16,9 @@ public class IhmCase {
         System.out.println(jNom + " a payé " + loyer + " à " + pNom);
     }
 
-    public void displayPlayerDrawLuck(){
+    public void displayPlayerDrawLuck(String joueur, int montant){
         System.out.print("Tirage d'une carte chance : ");
+        System.out.print( joueur + " à gagner " + montant + " euros");
     }
 
     public void displayLooseMoney(String joueur, int montant){

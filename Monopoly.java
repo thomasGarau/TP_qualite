@@ -68,7 +68,7 @@ public class Monopoly {
 						}
 						//on ajoute à la position du joueur sont lancer de des modulo la taille du plateau
 						j.setPosition((j.getPosition() + (des[0] + des[1])) % this.plateau.getNbCase());
-						this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(),plateau.getCase(j.getPosition()).getNom());
+						this.ctrl.ctrlDisplayPlayerPosition(j.getNom(), j.getPosition(), plateau.getCase(j.getPosition()).getNom());
 						this.plateau.getCase(j.getPosition()).action(j);
 					}
 					// verifie si le joueur à encore de l'argent

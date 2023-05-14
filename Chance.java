@@ -6,8 +6,8 @@ public class Chance extends CasePioche{
 
     @Override
     public void action(Joueur j) {
-        this.getCtrl().ctrlDisplayPlayerDrawLuck();
         int montant= (int) (Math.random() * this.getMontant() -  Math.random() * this.getMontant()) +1;
+        this.getCtrl().ctrlDisplayPlayerDrawLuck(j.getNom(), montant);
         j.modifierArgent(montant);
     }
 

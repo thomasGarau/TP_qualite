@@ -19,8 +19,8 @@ public class ControleurCase {
         this.ihm.displayPlayerPaidRent(jNom, loyer, pNom);
     }
 
-    public void ctrlDisplayPlayerDrawLuck(){
-        this.ihm.displayPlayerDrawLuck();
+    public void ctrlDisplayPlayerDrawLuck(String joueur, int montant){
+        this.ihm.displayPlayerDrawLuck(joueur, montant);
     }
 
     public void ctrlDisplayEarnMoney(String joueur, int montant){
